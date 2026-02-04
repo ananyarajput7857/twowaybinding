@@ -6,62 +6,35 @@ const App = () => {
 
 
 const [title, settitle] = useState("")
+const SubmitHandler =(e) => {
+  e.preventDefault();
+  
 
-const [completed,setcompleted] = useState(true);
-
-const [gender, setgender] = useState("male");
-
-const [city, setcity] = useState("mumbai");
+  const newtodo ={
+    id: nanoid(), 
+    title,
+    isComplrted: false,
+    
+  };
+  console.log(newtodo);
+};
 
   return (
     <div>
       <h1>create Tasks</h1>
-      <form>
+      <form onSubmit = {SubmitHandler}> 
         <input
-          onChange={(e) => setcompleted(e. target.value)}
+          onChange={(e) => settitle(e.target.value)}
           value={title}
           type="text"
           placeholder="title"
         />
-         <br />
-         <br />
-         <input
-           checked={completed}
-           onChange={(e) => setcompleted(e.target.checked)}
-           type="checkbox"
-        />
-         completed
-         <br /> <br />
-          <input
-        value="male"
-        onChange={(e) =>setgender(e.target.value)}
-        checked={gender =="male" && true}
-        type="radio"
-        />
-        male
-
-        <input
-        value="female"
-         onChange={(e) =>setgender(e.target.value)}
-        checked={gender =="female" && true}
-        type="radio"
-        
-        />
-        female
-        <br />
-         <br />
-         <select value={city} onChange={(e) => setcity(e.target.value)}>
-             <option value="delhi">Delhi</option>
-              <option value="mumbai">Mumbai</option>
-               <option value="kolkata">Kolkata</option>
-               <option value="patna">Patna</option>
-              <option value="hyderabad">Hyderabad</option>
-               <option value="jaipur">Jaipur</option>
-        </select>       
- <button>Create Todo</button>
-      </form>
-    </div>
+        <br/>
+        <br/>
+       <button>Create Todo</button> 
+       </form> 
+    </div> 
   );
-};
+};     
 
 export default App;
